@@ -167,18 +167,18 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 
 function renderPosts() {
     blogContainer.innerHTML = '';
-    
+
     blogPosts.forEach((post, index) => {
         const article = document.createElement('article');
-        
+
         // 1. Add the base card class
         article.classList.add('blog-card');
-        
+
         // 2. ADD THE COLOR CLASS HERE (This makes the colors work!)
         // It creates classes like: type-origins, type-economy, type-politics
         const typeClass = 'type-' + post.filter.toLowerCase();
         article.classList.add(typeClass);
-        
+
         article.setAttribute('data-filter', post.filter);
         article.style.transitionDelay = `${index * 50}ms`;
 
@@ -220,7 +220,7 @@ filterBtns.forEach(btn => {
         filterBtns.forEach(b => b.classList.remove('active'));
         // 2. Add active class to clicked
         btn.classList.add('active');
-        
+
         const filterValue = btn.getAttribute('data-filter');
         const cards = document.querySelectorAll('.blog-card');
 
@@ -274,4 +274,158 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPosts();
     const cards = document.querySelectorAll('.blog-card');
     cards.forEach(card => observer.observe(card));
+
+    // Initialize Hero Particles
+    initHeroParticles();
+
+    // Initialize Navigation Effects
+    initNavigation();
+
+    // Initialize Back to Top Button
+    initBackToTop();
+
+    // Initialize Section Reveal Animations
+    initSectionReveal();
+
+    // Hide Loading Screen
+    hideLoadingScreen();
 });
+
+// Hero Particles Animation
+function initHeroParticles() {
+    const particlesContainer = document.getElementById('hero-particles');
+    if (!particlesContainer) return;
+
+    const particleCount = 20;
+
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+
+        // Randomize position
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.bottom = Math.random() * -20 + '%';
+
+        // Randomize size
+        const size = Math.random() * 4 + 2;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+
+        // Randomize animation
+        particle.style.animationDelay = Math.random() * 8 + 's';
+        particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// Navigation Scroll Effects & Hamburger Menu
+function initNavigation() {
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    if (!navbar) return;
+
+    // Navbar scroll effect
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        // Add scrolled class when scrolled down
+        if (currentScroll > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        lastScroll = currentScroll;
+    });
+
+    // Hamburger menu toggle
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+}
+
+// Back to Top Button
+function initBackToTop() {
+    const backToTop = document.getElementById('back-to-top');
+
+    if (!backToTop) return;
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 400) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top on click
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Section Reveal Animation
+function initSectionReveal() {
+    const sections = document.querySelectorAll('.reveal-section');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+    sections.forEach(section => {
+        revealObserver.observe(section);
+    });
+}
+
+// Hide Loading Screen
+function hideLoadingScreen() {
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+        // Small delay to ensure everything is ready
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            // Remove from DOM layout after transition
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 600);
+        }, 800);
+    }
+}

@@ -1,43 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pre-Hispanic Heritage | ROSEL Group 7</title>
-    
+
     <link rel="stylesheet" href="style.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
 </head>
-<body>
 
-    <nav class="navbar">
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <span class="loader-text">Loading</span>
+        </div>
+    </div>
+
+    <nav class="navbar" id="navbar">
         <div class="logo">ROSELG7<span class="dot">.</span></div>
-        
-        <ul class="nav-links">
+
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
             <li><a href="#blog-feed">The Collection</a></li>
             <li><a href="#team">The Group</a></li>
         </ul>
     </nav>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6" />
+        </svg>
+    </button>
+
     <header class="hero">
-        <div class="hero-content">
-            <span class="eyebrow">Project by ROSEL Group 7</span>
-            <h1>Beliefs & Practices of Ancient Filipinos</h1>
-            <p>An interactive archive of pre-colonial social organization, economics, and culture.</p>
+        <!-- Animated Background Particles -->
+        <div class="hero-particles" id="hero-particles"></div>
+
+        <!-- Floating Decorative Elements -->
+        <div class="floating-elements">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            <div class="floating-shape shape-4"></div>
+            <div class="floating-glow glow-1"></div>
+            <div class="floating-glow glow-2"></div>
         </div>
-            
-        <a href="#filters" class="scroll-indicator">
-            <span class="scroll-text">Begin Journey</span>
-            <div class="mouse-icon">
-                <div class="wheel"></div>
+
+        <!-- Tribal Pattern Overlay -->
+        <div class="tribal-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-content-inner">
+                <span class="eyebrow">
+                    <span class="eyebrow-icon">✦</span>
+                    Project by ROSEL Group 7
+                    <span class="eyebrow-icon">✦</span>
+                </span>
+                <h1 class="hero-title">
+                    <span class="title-line">Beliefs & Practices</span>
+                    <span class="title-line title-accent">of Ancient</span>
+                    <span class="title-line title-highlight">Filipinos</span>
+                </h1>
+                <p class="hero-description">An interactive archive of pre-colonial social organization, economics, and
+                    culture.</p>
+                <div class="hero-cta">
+                    <a href="#blog-feed" class="cta-button primary">
+                        <span>Explore Collection</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="#team" class="cta-button secondary">
+                        <span>Meet the Team</span>
+                    </a>
+                </div>
             </div>
-        </a>
+
+
+        </div>
+
+
+
+        <!-- Wave Divider -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z"
+                    fill="var(--bg-light)"></path>
+            </svg>
+        </div>
     </header>
 
-    <section id="filters" class="filter-section">
+    <section id="filters" class="filter-section reveal-section">
+        <div class="section-header">
+            <span class="section-eyebrow">Explore the Archives</span>
+            <h2 class="section-title">The Collection</h2>
+            <p class="section-subtitle">Discover the rich tapestry of pre-colonial Filipino civilization</p>
+        </div>
         <div class="filter-container">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="Origins">Origins</button>
@@ -48,31 +123,47 @@
     </section>
 
     <main id="blog-feed" class="container">
-        </main>
+    </main>
 
-    <section id="team" class="team-section">
+    <!-- Decorative Section Divider -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+        </div>
+        <div class="divider-line"></div>
+    </div>
+
+    <section id="team" class="team-section reveal-section">
         <div class="team-header">
             <h2>Curated by ROSEL Group 7</h2>
             <div class="divider"></div>
         </div>
         <div class="team-grid">
             <div class="team-member">
-                <div class="avatar">MJ</div> <h3>Member Name 1</h3>
-            </div>
-            
-            <div class="team-member">
-                <div class="avatar">MJ</div>
-                <h3>Member Name 2</h3>
+                <div class="avatar">R</div>
+                <h3>Bene Gabriel Rosel</h3>
             </div>
 
             <div class="team-member">
-                <div class="avatar">MJ</div>
-                <h3>Member Name 3</h3>
+                <div class="avatar">O</div>
+                <h3>Joeremy Christie Ong</h3>
             </div>
 
             <div class="team-member">
-                <div class="avatar">MJ</div>
-                <h3>Member Name 4</h3>
+                <div class="avatar">S</div>
+                <h3>Vhon Angelico Salilo</h3>
+            </div>
+
+            <div class="team-member">
+                <div class="avatar">L</div>
+                <h3>Vince Roy Lim</h3>
             </div>
         </div>
     </section>
@@ -97,4 +188,5 @@
 
     <script src="main.js"></script>
 </body>
+
 </html>
