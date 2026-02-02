@@ -821,6 +821,10 @@ body {
     animation-delay: 0.8s;
 }
 
+.title-line:nth-child(4) {
+    animation-delay: 0.95s;
+}
+
 @keyframes titleReveal {
     from {
         opacity: 0;
@@ -841,14 +845,14 @@ body {
     font-weight: 400;
 }
 
-.title-highlight {
+.title-line.title-highlight {
     background: linear-gradient(135deg, var(--accent-color) 0%, #FFD194 50%, var(--accent-color) 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: titleReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both, shimmer 3s linear infinite;
-    animation-delay: 0.8s, 1.5s;
+    animation-delay: 0.95s, 1.65s;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -1705,9 +1709,12 @@ footer p::after {
         font-size: 2.5rem;
     }
 
-    .title-accent,
+    .title-accent {
+        font-size: 1.8rem;
+    }
+
     .title-highlight {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     /* Container for blog grid - reduce min-width */
