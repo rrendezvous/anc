@@ -1468,7 +1468,7 @@ body {
 }
 
 .team-grid {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1478,7 +1478,7 @@ body {
 }
 
 .team-member {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     border-radius: 20px;
     background: transparent;
