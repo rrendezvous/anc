@@ -1,280 +1,470 @@
-/* --- Variables & Reset --- */
+/* =========================================
+   1. VARIABLES & COLOR PALETTE
+   ========================================= */
 :root {
-    --primary-color: #8D6E63; /* Terracotta */
-    --accent-color: #D4AF37; /* Gold/Brass */
-    --text-dark: #2c3e50;
-    --text-light: #ecf0f1;
-    --bg-light: #fdfbf7; /* Paper/Parchment */
-    --bg-card: #ffffff;
+    --primary-color: #A44A3F; /* Terra Cotta Red */
+    --secondary-color: #1A3C40; /* Deep Lagoon Teal */
+    --accent-color: #E2B057;  /* Antique Gold */
+    --text-dark: #2D3142;     /* Deep Blue-Grey */
+    --text-light: #F4F5F0;    /* Pearl White */
+    --bg-light: #F4F5F0;
+    --bg-card: #FFFFFF;
+    
     --font-heading: 'Cinzel', serif;
     --font-body: 'Lato', sans-serif;
-    --spacing-md: 2rem;
-    --spacing-lg: 4rem;
+    
+    --shadow-soft: 0 10px 40px -10px rgba(26, 60, 64, 0.15);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* =========================================
+   2. RESET & GLOBAL STYLES
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
     background-color: var(--bg-light);
     color: var(--text-dark);
     font-family: var(--font-body);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
-/* --- Navigation --- */
+/* =========================================
+   3. NAVIGATION (Glassmorphism)
+   ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
-    background: var(--bg-light);
+    padding: 1.2rem 5%;
+    background: rgba(249, 247, 242, 0.85); /* Semi-transparent */
+    backdrop-filter: blur(12px); /* Frosted glass effect */
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-.logo {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-dark);
+.logo { 
+    font-family: var(--font-heading); 
+    font-size: 1.6rem; 
+    font-weight: 700; 
+    color: var(--secondary-color);
+    letter-spacing: -0.5px;
 }
+.logo .dot { color: var(--primary-color); }
 
-.logo .dot { color: var(--accent-color); }
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
+.nav-links { list-style: none; display: flex; gap: 2.5rem; }
 .nav-links a {
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--secondary-color);
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
+    letter-spacing: 1.5px;
+    transition: all 0.3s;
+    position: relative;
 }
 
+/* Nav Hover Animation */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+.nav-links a:hover::after { width: 100%; }
 .nav-links a:hover { color: var(--primary-color); }
 
-/* --- Hero Section --- */
+/* =========================================
+   4. HERO SECTION (Slanted & Gradient)
+   ========================================= */
 .hero {
-    height: 80vh;
+    height: 95vh; /* Almost full screen */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1599579782807-635f793b590e?q=80&w=1920&auto=format&fit=crop'); /* Generic nature background */
+    position: relative;
+    padding: 0 1rem;
+    
+    /* THE VIGNETTE EFFECT: Dark edges, bright center */
+    background: radial-gradient(
+        circle at center, 
+        rgba(26, 60, 64, 0.5) 0%, 
+        rgba(26, 60, 64, 0.9) 100%
+    ), url('https://images.unsplash.com/photo-1599579782807-635f793b590e?q=80&w=1920&auto=format&fit=crop');
+    
     background-size: cover;
     background-position: center;
-    color: var(--text-light);
-    padding: 0 1rem;
+    background-attachment: fixed; /* Parallax Effect (Image stays still while scrolling) */
+    
+    /* Slanted Bottom Edge */
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
-.hero h1 {
-    font-family: var(--font-heading);
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.eyebrow {
-    display: block;
-    color: var(--accent-color);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.btn-scroll {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 1rem 2rem;
-    border: 1px solid var(--text-light);
-    color: var(--text-light);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: all 0.3s ease;
-}
-
-.btn-scroll:hover {
-    background: var(--accent-color);
-    border-color: var(--accent-color);
-    color: var(--text-dark);
-}
-
-/* --- Blog Grid --- */
-.container {
-    max-width: 1200px;
-    margin: var(--spacing-lg) auto;
-    padding: 0 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
-}
-
-.blog-card {
-    background: var(--bg-card);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0; /* For animation */
-    transform: translateY(20px);
-}
-
-.blog-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.blog-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-
-.card-header {
-    height: 10px;
-    width: 100%;
-    background: var(--primary-color);
-}
-
-.card-body {
-    padding: 2rem;
-}
-
-.category {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    color: var(--primary-color);
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.card-body h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    margin: 0.5rem 0 1rem 0;
-    color: var(--text-dark);
-}
-
-.card-body p {
-    color: #666;
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-}
-
-.tag-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.tag {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.75rem;
-    background: #f0f0f0;
-    border-radius: 50px;
-    color: #555;
-}
-
-/* --- Footer --- */
-footer {
-    text-align: center;
+.hero-content {
+    max-width: 900px;
+    z-index: 2;
+    /* Glass card effect behind text for maximum readability */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
     padding: 3rem;
-    background: var(--text-dark);
-    color: #888;
-    margin-top: 4rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.hero h1 { 
+    font-family: var(--font-heading); 
+    font-size: 4.5rem; /* Massive size */
+    line-height: 1.1; 
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    
+    /* Text Shadow to make it pop */
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* The Eyebrow Text (Small text above title) */
+.eyebrow { 
+    display: inline-block; 
+    color: var(--accent-color); 
+    text-transform: uppercase; 
+    letter-spacing: 6px; 
+    margin-bottom: 1rem; 
+    font-weight: 700; 
     font-size: 0.85rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    .nav-links { display: none; }
-}
-
-/* --- MODAL (POPUP) STYLES --- */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(5px); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    padding: 1rem;
-}
-
-.modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal-content {
-    background: var(--bg-card);
-    width: 100%;
-    max-width: 600px;
-    padding: 3rem;
-    border-radius: 12px;
-    position: relative;
-    transform: translateY(30px);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy pop effect */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.modal-overlay.active .modal-content {
-    transform: translateY(0);
-}
-
-.close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #999;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.close-btn:hover {
-    color: var(--primary-color);
-}
-
-.modal-header h2 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-dark);
-    line-height: 1.2;
-}
-
-.modal-body p {
-    font-size: 1.1rem;
-    color: #444;
+.hero p { 
+    font-size: 1.25rem; 
+    max-width: 700px; 
+    margin: 0 auto; 
+    color: rgba(255,255,255,0.9); 
+    font-weight: 300; 
     line-height: 1.8;
 }
 
-.blog-card {
+/* --- NEW SCROLL INDICATOR (The "Mouse") --- */
+.scroll-indicator {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.scroll-indicator:hover { opacity: 1; }
+
+.scroll-text {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.mouse-icon {
+    width: 26px;
+    height: 42px;
+    border: 2px solid var(--text-light);
+    border-radius: 20px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+    0% { top: 6px; opacity: 1; }
+    100% { top: 20px; opacity: 0; }
+}
+
+/* Responsive adjustment for Hero */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .hero-content { padding: 1.5rem; background: none; border: none; backdrop-filter: none; box-shadow: none; }
+    .mouse-icon { display: none; } /* Hide mouse on mobile, just keep text */
+}
+/* =========================================
+   5. FILTER BUTTONS
+   ========================================= */
+.filter-section {
+    padding: 4rem 1rem 1rem 1rem;
+    text-align: center;
+}
+
+.filter-container {
+    display: inline-flex;
+    background: #EBE8E0; 
+    padding: 0.5rem;
+    border-radius: 50px;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    color: #666;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
     cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.filter-btn:hover { color: var(--secondary-color); }
+
+.filter-btn.active {
+    background: var(--secondary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(38, 70, 83, 0.3);
+}
+
+/* =========================================
+   6. BLOG GRID & CARDS
+   ========================================= */
+.container {
+    max-width: 1200px;
+    margin: 3rem auto 6rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    min-height: 400px;
+}
+
+/* Optimized Blog Card - Smoother Performance */
+.blog-card {
+    /* Default fallback color */
+    --theme-color: #9A442E; 
+    
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    
+    /* PERFORMANCE FIX: Only animate specific properties */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease;
+    /* HARDWARE ACCELERATION: Tells browser to prepare for movement */
+    will-change: transform, box-shadow;
+    
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.05); /* Lighter border for better performance */
+    box-shadow: var(--shadow-soft);
+}
+
+.blog-card.hidden { display: none; }
+.blog-card.visible { opacity: 1; transform: translateY(0); }
+
+/* Smooth Hover Effect */
+.blog-card:hover { 
+    transform: translateY(-8px); 
+    border-color: var(--theme-color);
+    /* Optimized shadow: slightly smaller spread to reduce lag */
+    box-shadow: 0 15px 30px -10px var(--theme-color); 
+}
+
+/* Card Header Line */
+.card-header { 
+    height: 6px; 
+    width: 100%; 
+    background: linear-gradient(90deg, var(--theme-color), #EBE8E0); 
+}
+
+.card-body { padding: 2.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+
+/* Dynamic Category Color */
+.category { 
+    font-size: 0.7rem; 
+    text-transform: uppercase; 
+    color: var(--theme-color); /* Dynamic Color */
+    font-weight: 800; 
+    letter-spacing: 1px; 
+    margin-bottom: 0.5rem; 
+    display: block; 
+}
+
+.card-body h3 { 
+    font-family: var(--font-heading); 
+    font-size: 1.5rem; 
+    margin-bottom: 1rem; 
+    color: var(--secondary-color); 
+    line-height: 1.3; 
+}
+
+.card-body p { color: #555; font-size: 1rem; margin-bottom: 1.5rem; flex-grow: 1; line-height: 1.7; }
+
+/* Read More Button Color */
+.read-more-btn {
+    color: var(--theme-color); /* Dynamic Color */
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
+.tag { 
+    font-size: 0.7rem; 
+    padding: 0.3rem 0.8rem; 
+    background: #F0F4F8; 
+    border-radius: 6px; 
+    color: var(--secondary-color); 
+    font-weight: 600;
+}
+
+/* =========================================
+   7. TEAM SECTION
+   ========================================= */
+.team-section {
+    background: white;
+    padding: 6rem 2rem;
+    text-align: center;
+    /* Slanted Top */
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -3rem;
+    padding-top: 8rem;
+}
+
+.team-header h2 { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 1rem; color: var(--secondary-color); }
+.divider { width: 80px; height: 4px; background: var(--primary-color); margin: 0 auto 4rem auto; border-radius: 2px; }
+
+.team-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+}
+
+.team-member { padding: 1rem; transition: transform 0.3s; }
+.team-member:hover { transform: translateY(-5px); }
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(38, 70, 83, 0.3);
+    border: 4px solid white;
+}
+
+.team-member h3 { font-size: 1.2rem; color: var(--text-dark); margin-bottom: 0.5rem; font-weight: 700; }
+
+/* =========================================
+   8. FOOTER
+   ========================================= */
+footer { 
+    text-align: center; 
+    padding: 4rem 2rem; 
+    background: var(--secondary-color); 
+    color: rgba(255,255,255,0.6); 
+    font-size: 0.9rem; 
+}
+
+/* =========================================
+   9. MODAL / POPUP
+   ========================================= */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(38, 70, 83, 0.85); /* Teal overlay */
+    backdrop-filter: blur(8px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s ease; padding: 1rem;
+}
+.modal-overlay.active { opacity: 1; visibility: visible; }
+
+.modal-content {
+    background: var(--bg-card); width: 100%; max-width: 700px;
+    padding: 4rem; border-radius: 20px; position: relative;
+    transform: translateY(30px); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    max-height: 85vh; overflow-y: auto;
+    border-top: 8px solid var(--primary-color);
+}
+.modal-overlay.active .modal-content { transform: translateY(0); }
+
+.close-btn {
+    position: absolute; top: 1.5rem; right: 2rem; background: none; border: none;
+    font-size: 2.5rem; color: #ccc; cursor: pointer; transition: color 0.3s;
+}
+.close-btn:hover { color: var(--primary-color); }
+
+.modal-header h2 { font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 1rem; line-height: 1.2; color: var(--secondary-color); }
+.modal-body p { font-size: 1.15rem; color: #444; line-height: 1.9; margin-bottom: 2rem; }
+
+/* =========================================
+   10. RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .nav-links { display: none; }
+    .filter-container { gap: 0.2rem; border-radius: 12px; }
+    .filter-btn { padding: 0.6rem 1rem; font-size: 0.7rem; }
+    .team-section { clip-path: none; margin-top: 0; }
+    .modal-content { padding: 2rem; }
+}
+
+/* =========================================
+   11. DYNAMIC COLOR OVERRIDES (MUST BE LAST)
+   ========================================= */
+
+/* Origins = Bronze/Amber */
+.type-origins { 
+    --theme-color: #D97706 !important; 
+}
+
+/* Economy = Emerald/Jade */
+.type-economy { 
+    --theme-color: #059669 !important; 
+}
+
+/* Politics = Royal Crimson */
+.type-politics { 
+    --theme-color: #B91C1C !important; 
+}
+
+/* Culture = Clay/Rust */
+.type-culture { 
+    --theme-color: #9A442E !important; 
 }
