@@ -1,26 +1,24 @@
-// Data extracted from reference text
-// 'filter' property matches the buttons in HTML: Origins, Economy, Politics, Culture
 const blogPosts = [
     // --- ORIGINS ---
     {
         category: "Origins",
         filter: "Origins",
         title: "The Dawnmen (First Migrants)",
-        content: "According to historian H. Otley Beyer, the first inhabitants were the 'Dawnmen' (cavemen). Arriving about 250,000 years ago via land bridges, they resembled the famous Java Man and Peking Man. They didn't know how to farm yet and lived by hunting and fishing, eventually moving on to other places.",
+        content: "According to historian H. Otley Beyer, the first inhabitants were the 'Dawnmen' (cavemen). They lived about 250,000 years ago and resembled the Java Man and Peking Man. They had no knowledge of agriculture and survived by hunting and fishing. In search of food, they reached the Philippines through land bridges that connected the islands to Indonesia, and later left for destinations unknown.",
         tags: ["Beyer", "Cavemen", "Pleistocene"]
     },
     {
         category: "Origins",
         filter: "Origins",
         title: "The Aetas & The Land Bridge",
-        content: "About 30,000 years ago, the Aetas (Negritos) crossed land bridges from Malaya and Borneo, reaching Palawan and Mindanao. They were skilled hunters using spears. When the Ice Age ended and sea levels rose, the land bridges disappeared, trapping them here as the islands' first permanent residents.",
+        content: "About 30,000 years ago, the Aetas (Negritos) crossed land bridges from Malaya, Borneo, and Australia until they reached places like Palawan, Mindoro, and Mindanao. They were skilled hunters and gatherers and used spears and stone tools. When the Ice Age ended and sea levels rose, the land bridges disappeared—an event that forced them to remain in the islands as the first permanent inhabitants.",
         tags: ["Aetas", "Negritos", "Geology"]
     },
     {
         category: "Migration",
         filter: "Origins",
         title: "The Seafaring Indonesians",
-        content: "The third wave of migrants, the Indonesians, were the first to arrive by boat. They were more advanced than the previous groups: they had stone and steel tools, built sturdy houses, and knew how to mine. Most importantly, they introduced brass materials to the Philippines.",
+        content: "Because the land bridges had disappeared, the third wave of migrants—the Indonesians—were skilled in seafaring and arrived in boats. They were more advanced than the Aetas: they used tools made of stone and steel, built sturdier houses, engaged in farming and mining, used materials made of brass, and wore clothing and body ornaments.",
         tags: ["Seafaring", "Brass", "Mining"]
     },
     {
@@ -34,7 +32,7 @@ const blogPosts = [
         category: "Anthropology",
         filter: "Origins",
         title: "The Tabon Cave Discovery",
-        content: "In 1962, archaeologists found a skullcap in the Tabon Caves of Palawan. Dated to 22,000 years ago, this 'Tabon Man' proves people lived here much earlier than we thought. This discovery supports the 'Evolution Theory' (that we evolved locally) rather than just the 'Migration Theory.'",
+        content: "In 1962, archaeologists found a skullcap (and part of a jaw) in the Tabon Caves of Palawan. Dated to about 21,000–22,000 years ago, this 'Tabon Man' shows that humans lived in the Philippine islands very early. Jocano used this and other Southeast Asian evidence to argue for an 'Evolution Theory'—a long process of evolution and migration in the region—rather than only separate waves of migration into the Philippines.",
         tags: ["Palawan", "Evolution", "Robert Fox"]
     },
 
@@ -50,36 +48,36 @@ const blogPosts = [
         category: "Demographics",
         filter: "Economy",
         title: "Population Centers of the South",
-        content: "By A.D. 1000, big population centers grew in Cebu, Iloilo, and Butuan. These areas are full of high-quality ancient ceramics, which tells us they were the main hubs for international trade long before the Spaniards arrived.",
+        content: "By A.D. 1000, large population centers grew in places such as Cebu, the Iloilo area, and Butuan. The presence of foreign trade goods (including high-quality ceramics) in these areas suggests they were among the major centers involved in overseas trade long before the Spaniards arrived.",
         tags: ["Cebu", "Butuan", "Visayas"]
     },
     {
         category: "Trade Ethics",
         filter: "Economy",
         title: "The 'Wholesale' Trust System",
-        content: "Chinese merchants trusted Filipinos immensely. Since their large ships couldn't dock in small local ports, they would leave bulk goods with local traders and sail away. They would return months later to collect payment after the locals had sold the goods. It was a system built entirely on honor.",
+        content: "Overseas trade often relied on local market networks. For example, Chinese merchants would sometimes wait for months while their local clients distributed goods through retail and barter systems, especially where foreign ships could not safely berth in every place. This kind of arrangement depended on ongoing relationships between visiting traders and local communities.",
         tags: ["China", "Trust", "Commerce"]
     },
     {
         category: "Global Trade",
         filter: "Economy",
         title: "The Arab Connection",
-        content: "We weren't just trading with Asia. Sites in Batangas and Mindanao have yielded glass vessels traced back to the Arab world (dated A.D. 1000). This proves the ancient Philippines was already connected to the massive Indian Ocean trade network.",
+        content: "Archaeological sites on the western coast of Batangas and the northeastern coast of Mindanao have yielded high-fired ceramics dated around A.D. 1000–1100 (or earlier). Some finds include materials linked to the Arab world, including a few glass vessels. These discoveries suggest that certain Philippine ports were connected—directly or indirectly—to wider long-distance trade routes at the time.",
         tags: ["Arabia", "Glass", "Global Trade"]
     },
     {
         category: "Industry",
         filter: "Economy",
         title: "The Iron Slag Evidence",
-        content: "Ancient Filipinos didn't just buy metal tools; they made them. The discovery of 'iron slags' (waste from melting metal) proves that communities had factories dedicated to mass-producing tools. This was a complex industrial economy, not just simple farming.",
+        content: "Ancient communities did not only acquire metal from trade—they also worked it locally. Archaeologists have found iron slags (residues from iron-making) in some sites, which suggests craft specialization in producing metal tools. This implies organized local manufacturing and larger, more permanent communities with investments beyond agriculture.",
         tags: ["Metalwork", "Iron", "Manufacturing"]
     },
     {
         category: "Agriculture",
         filter: "Economy",
         title: "The Wet-Rice Revolution",
-        content: "The economy boomed when locals mastered 'wet-rice agriculture' in the floodplains. Using plows and carabaos made farming much more efficient. Rice became a status symbol, and they even developed special rice strains for dry farming in the mountains.",
-        tags: ["Rice", "Farming", "Innovation"]
+        content: "By this period, intensive wet-rice agriculture was well established in lowlands and floodplains. With growing contact with China and its metal industry, the development of intensive agricultural complexes was enhanced. The use of draft animals and the plow complex made farming more efficient, leading to optimal rice production. Rice also gained a prestige position as a staple, and different strains began to be adopted for dry regimes and introduced in swiddens in the highlands.",
+        tags: ["Rice", "Farming", "Agriculture"]
     },
 
     // --- CULTURE ---
@@ -87,36 +85,36 @@ const blogPosts = [
         category: "Culture",
         filter: "Culture",
         title: "The Butuan-Tausug Connection",
-        content: "Trade didn't just move goods; it moved people and languages. Archaeological evidence tracks a migration from Northeastern to Southwestern Mindanao around A.D. 1100. This is proven by the striking similarities between the Butuanon language and the Tausug language.",
+        content: "Trade didn’t just move goods; it could also support wider movement and contact among peoples. Archaeological evidence suggests populations moved from northeastern to southwestern Mindanao around A.D. 1100, alongside intense trade in Asian ceramics. The noted similarity between the Butuanon language and the Tausug language is one clue often discussed in relation to these historical connections.",
         tags: ["Language", "Linguistics", "Mindanao"]
     },
     {
         category: "Archaeology",
         filter: "Culture",
         title: "The Thai Ceramic Mystery",
-        content: "Archaeology shows a divide in trade partners. Thai ceramics are very common in the Southern Philippines but rare in the North. This suggests the South was part of a specific trade network with Thailand and Indonesia that didn't really reach Luzon.",
-        tags: ["Thailand", "Ceramics", "Trade Routes"]
+        content: "Archaeological evidence shows that Thai ceramics were more common in the southern Philippines, and the number progressively became less as one goes north. These wares became extremely rare in northern Luzon, reflecting differences in the quantity and distribution of foreign trade ceramics across the archipelago.",
+        tags: ["Thailand", "Ceramics", "Trade"]
     },
     {
         category: "Artistry",
         filter: "Culture",
         title: "Batangas vs. Mindanao Pottery",
-        content: "Local art styles were distinct. Batangas potters made fancy, polished dishes with intricate designs. Meanwhile, pottery in Mindanao was simpler. This shows that even though they traded with the same foreigners, different regions maintained their own unique artistic cultures.",
-        tags: ["Pottery", "Art", "Batangas"]
+        content: "Local pottery styles could differ greatly by region. In the Batangas sites, archaeologists found sophisticated Metal Age types such as presentation dishes with ornate cut-out stands, goblets, and incised or impressed designs, often red-slipped and highly polished. In northeastern Mindanao, local pottery showed a more limited range in form and decoration. This suggests the two areas belonged to different local trade networks, even though they were linked to similar (or the same) Asian trade sources.",
+        tags: ["Batangas", "Mindanao", "Pottery"]
     },
     {
         category: "Beliefs",
         filter: "Culture",
         title: "The Sacred Water Buffalo",
-        content: "The carabao (water buffalo) was a symbol of wealth and status. It wasn't just for plowing fields; archaeological remains show they were used in important rituals and feasts. If you owned carabaos, you had power and prestige.",
+        content: "The carabao (water buffalo) was an important index of wealth and status. It was crucial for wet-rice farming, and archaeological remains show buffalo were common in sites from this period. Beyond farming, these animals were also valued for trade and prestige, and they likely played significant roles in rituals conducted by different societies.",
         tags: ["Rituals", "Carabao", "Animism"]
     },
     {
         category: "Spirituality",
         filter: "Culture",
         title: "Heirlooms for the Dead",
-        content: "Belief in the afterlife was strong. Costly Ming dynasty ceramics weren't just used for cooking; they were treasured heirlooms buried with the dead. This practice shows they believed material wealth had spiritual value in the next life.",
-        tags: ["Burial", "Ming Dynasty", "Spirituality"]
+        content: "Trade ceramics could circulate far beyond major ports. It was common to find Ming dynasty ceramics used as heirloom pieces, even among households in mountain areas that were difficult to access. These ceramics were also sometimes interred with the dead in traditional burial grounds.",
+        tags: ["Burial", "Ming Dynasty", "Heirlooms"]
     },
 
     // --- POLITICS ---
@@ -124,7 +122,7 @@ const blogPosts = [
         category: "Politics",
         filter: "Politics",
         title: "The Strategy of Alliances",
-        content: "As society grew, blood ties weren't enough. Communities formed political alliances for protection. For example, the text notes an alliance between the peoples of Zambales and Pangasinan to defend against the Ilocanos. Politics was becoming strategic.",
+        content: "As populations grew and communities interacted more frequently, alliances began to go beyond kinship as the sole principle of organization. Groups sometimes united for larger arenas of action, such as when the peoples of Zambales allied with those of Pangasinan against the Ilocano populations. These alliances were shaped by expediency, leadership, and intergroup interactions.",
         tags: ["Warfare", "Strategy", "Luzon"]
     },
     {
@@ -138,16 +136,16 @@ const blogPosts = [
         category: "Governance",
         filter: "Politics",
         title: "The Southern Sultanates",
-        content: "The most organized governments appeared in the South with the arrival of Islam. This introduced titles like 'Raja' and 'Sultan.' It created a formal political hierarchy that was more complex than the barangay systems found elsewhere.",
+        content: "In the southern Philippines, political organization became more complex with the introduction of Islam and the sociological and political structures associated with it, layered over earlier Indian influences. These structures were not always adopted exactly as introduced and were often modified locally. In some cases, prestige titles (such as raja, sultan, or datu) could be used in oral traditions without the same kind of supporting structures seen elsewhere. Even so, societies influenced by Islam are described as among the most developed in terms of political and social organization.",
         tags: ["Islam", "Sultan", "Mindanao"]
     },
     {
         category: "History",
         filter: "Politics",
         title: "The Cebu-Mactan Standoff",
-        content: "By 1521, communities were large enough to have major political conflicts. The text highlights the 'stand-off' between the chiefs of Cebu and Mactan (Lapu-Lapu). This proves complex politics existed long before the Spanish arrived to record it.",
-        tags: ["Lapu-Lapu", "Cebu", "1521"]
-    }
+        content: "The reference describes how, by the time the first Spaniards arrived in 1521, some communities were large enough to require higher levels of political integration. One example mentioned is the leadership stand-off between the heads of the communities in Cebu and the island of Mactan.",
+        tags: ["Lapu-Lapu", "Cebu", "Mactan"]
+    },
 ];
 
 // --- APP LOGIC ---
@@ -171,11 +169,11 @@ function renderPosts() {
     blogPosts.forEach((post, index) => {
         const article = document.createElement('article');
 
-        // 1. Add the base card class
+        // Base card class
         article.classList.add('blog-card');
 
-        // 2. ADD THE COLOR CLASS HERE (This makes the colors work!)
-        // It creates classes like: type-origins, type-economy, type-politics
+        // Color class
+        // creates classes like: type-origins, type-economy, type-politics
         const typeClass = 'type-' + post.filter.toLowerCase();
         article.classList.add(typeClass);
 
@@ -187,7 +185,7 @@ function renderPosts() {
         const tagsHtml = post.tags.map(tag => `<span class="tag">#${tag}</span>`).join('');
         const readTime = "1 min read";
 
-        // 3. Updated HTML to use the new classes
+        // Updated HTML to use the new classes
         article.innerHTML = `
             <div class="card-header"></div>
             <div class="card-body">
@@ -216,9 +214,9 @@ function renderPosts() {
 // --- FILTER LOGIC ---
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // 1. Remove active class from all
+        // Remove active class from all
         filterBtns.forEach(b => b.classList.remove('active'));
-        // 2. Add active class to clicked
+        // Add active class to clicked
         btn.classList.add('active');
 
         const filterValue = btn.getAttribute('data-filter');
