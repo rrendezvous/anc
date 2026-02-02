@@ -1701,31 +1701,52 @@ footer p::after {
    10. RESPONSIVE DESIGN
    ========================================= */
 @media (max-width: 768px) {
-    .hero h1 {
+    .hero-title {
         font-size: 2.5rem;
     }
 
-    .nav-links {
-        display: none;
+    .title-accent,
+    .title-highlight {
+        font-size: 2rem;
+    }
+
+    /* Container for blog grid - reduce min-width */
+    .container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        padding: 0 1.5rem;
     }
 
     .filter-container {
-        gap: 0.2rem;
-        border-radius: 12px;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0.5rem;
     }
 
     .filter-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.7rem;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.75rem;
+    }
+
+    .team-grid {
+        gap: 2rem;
     }
 
     .team-section {
-        clip-path: none;
-        margin-top: 0;
+        padding: 4rem 1.5rem;
     }
 
     .modal-content {
-        padding: 2rem;
+        padding: 2rem 1.5rem;
+        width: 95%;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
     }
 }
 
