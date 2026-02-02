@@ -11,14 +11,14 @@ const blogPosts = [
         category: "Origins",
         filter: "Origins",
         title: "The Aetas & The Land Bridge",
-        content: "About 30,000 years ago, the Aetas (Negritos) crossed land bridges from Malaya, Borneo, and Australia until they reached places like Palawan, Mindoro, and Mindanao. They were skilled hunters and gatherers and used spears and stone tools. When the Ice Age ended and sea levels rose, the land bridges disappeared—an event that forced them to remain in the islands as the first permanent inhabitants.",
+        content: "About 30,000 years ago, the Aetas (Negritos) crossed land bridges from Malaya, Borneo, and Australia until they reached places like Palawan, Mindoro, and Mindanao. They were skilled hunters and gatherers and used spears and stone tools. When the Ice Age ended and sea levels rose, the land bridges disappeared - an event that forced them to remain in the islands as the first permanent inhabitants.",
         tags: ["Aetas", "Negritos", "Geology"]
     },
     {
         category: "Migration",
         filter: "Origins",
         title: "The Seafaring Indonesians",
-        content: "Because the land bridges had disappeared, the third wave of migrants—the Indonesians—were skilled in seafaring and arrived in boats. They were more advanced than the Aetas: they used tools made of stone and steel, built sturdier houses, engaged in farming and mining, used materials made of brass, and wore clothing and body ornaments.",
+        content: "Because the land bridges had disappeared, the third wave of migrants, the Indonesians, were skilled in seafaring and arrived in boats. They were more advanced than the Aetas: they used tools made of stone and steel, built sturdier houses, engaged in farming and mining, used materials made of brass, and wore clothing and body ornaments.",
         tags: ["Seafaring", "Brass", "Mining"]
     },
     {
@@ -32,7 +32,7 @@ const blogPosts = [
         category: "Anthropology",
         filter: "Origins",
         title: "The Tabon Cave Discovery",
-        content: "In 1962, archaeologists found a skullcap (and part of a jaw) in the Tabon Caves of Palawan. Dated to about 21,000–22,000 years ago, this 'Tabon Man' shows that humans lived in the Philippine islands very early. Jocano used this and other Southeast Asian evidence to argue for an 'Evolution Theory'—a long process of evolution and migration in the region—rather than only separate waves of migration into the Philippines.",
+        content: "In 1962, archaeologists found a skullcap (and part of a jaw) in the Tabon Caves of Palawan. Dated to about 21,000–22,000 years ago, this 'Tabon Man' shows that humans lived in the Philippine islands very early. Jocano used this and other Southeast Asian evidence to argue for an 'Evolution Theory', a long process of evolution and migration in the region, rather than only separate waves of migration into the Philippines.",
         tags: ["Palawan", "Evolution", "Robert Fox"]
     },
 
@@ -62,14 +62,14 @@ const blogPosts = [
         category: "Global Trade",
         filter: "Economy",
         title: "The Arab Connection",
-        content: "Archaeological sites on the western coast of Batangas and the northeastern coast of Mindanao have yielded high-fired ceramics dated around A.D. 1000–1100 (or earlier). Some finds include materials linked to the Arab world, including a few glass vessels. These discoveries suggest that certain Philippine ports were connected—directly or indirectly—to wider long-distance trade routes at the time.",
+        content: "Archaeological sites on the western coast of Batangas and the northeastern coast of Mindanao have yielded high-fired ceramics dated around A.D. 1000-1100 (or earlier). Some finds include materials linked to the Arab world, including a few glass vessels. These discoveries suggest that certain Philippine ports were connected, directly or indirectly, to wider long-distance trade routes at the time.",
         tags: ["Arabia", "Glass", "Global Trade"]
     },
     {
         category: "Industry",
         filter: "Economy",
         title: "The Iron Slag Evidence",
-        content: "Ancient communities did not only acquire metal from trade—they also worked it locally. Archaeologists have found iron slags (residues from iron-making) in some sites, which suggests craft specialization in producing metal tools. This implies organized local manufacturing and larger, more permanent communities with investments beyond agriculture.",
+        content: "Ancient communities did not only acquire metal from trade,they also worked it locally. Archaeologists have found iron slags (residues from iron-making) in some sites, which suggests craft specialization in producing metal tools. This implies organized local manufacturing and larger, more permanent communities with investments beyond agriculture.",
         tags: ["Metalwork", "Iron", "Manufacturing"]
     },
     {
