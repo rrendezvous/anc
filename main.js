@@ -326,16 +326,26 @@ function applyFilters() {
         const cardTitle = post.title.toLowerCase();
         const cardContent = post.content.toLowerCase(); // Full content search
         const cardTags = post.tags.map(t => t.toLowerCase()).join(' ');
+        const cardAuthor = post.author.toLowerCase();
 
         // Check Category Match
         const categoryMatch = (currentFilter === 'all' || cardCategory === currentFilter);
 
-        // Check Search Match
-        const searchMatch = (
-            cardTitle.includes(currentSearch) ||
-            cardContent.includes(currentSearch) ||
-            cardTags.includes(currentSearch)
-        );
+        // Check Search Match (Regex for "Start of Word")
+        let searchMatch = true;
+        if (currentSearch) {
+            // Escape special chars to prevent regex errors
+            const safeSearch = currentSearch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            // Regex: \b matches word boundary (start of word)
+            const regex = new RegExp(`\\b${safeSearch}`, 'i');
+
+            searchMatch = (
+                regex.test(post.title) ||
+                regex.test(post.content) ||
+                regex.test(post.tags.join(' ')) ||
+                regex.test(post.author)
+            );
+        }
 
         // Show/Hide Logic
         if (categoryMatch && searchMatch) {
