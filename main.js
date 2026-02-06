@@ -366,8 +366,8 @@ function renderFeaturedPosts() {
         const card = document.createElement('div');
         card.classList.add('featured-card');
 
-        // Staggered animation delay
-        card.style.animationDelay = `${index * 0.2}s`;
+        // Staggered reveal delay
+        card.style.transitionDelay = `${index * 0.2}s`;
 
         const shortDate = post.date.replace('February', 'Feb').replace(', 2026', '').toUpperCase();
 

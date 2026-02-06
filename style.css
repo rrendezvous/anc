@@ -2162,11 +2162,15 @@ footer p::after {
     /* Subtle Gold Border */
     box-shadow: 0 10px 30px rgba(26, 60, 64, 0.2);
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeSlideUp 0.8s ease forwards;
     min-height: 220px;
+}
+
+.featured-section.revealed .featured-card {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .featured-card:hover {
